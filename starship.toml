@@ -51,6 +51,8 @@ repo_root_style = "bold bright-yellow"
 truncate_to_repo = true
 use_logical_path = true
 use_os_path_sep = false
+truncation_length = 0
+
 
 [git_branch]
 disabled = false
