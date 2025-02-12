@@ -1,0 +1,138 @@
+"$schema" = "https://starship.rs/config-schema.json"
+
+format = """
+${custom.shell_prefix}\
+$shell\
+$os\
+$username\
+$directory\
+
+$c\
+$rust\
+$golang\
+$java\
+$haskell\
+$python\
+
+$git_branch\
+$git_status\
+$git_metrics\
+$git_state\
+
+$time\
+$cmd_duration\
+$status
+$character\
+"""
+
+add_newline = true
+command_timeout = 2000
+
+[shell]
+disabled = false
+format = "[$indicator](none) "
+
+[os]
+disabled = false
+format = "on [$symbol](none) | "
+
+[username]
+disabled = false
+format = "[$user](none) | "
+show_always = false
+
+[directory]
+disabled = false
+format = "[$path]($style) "
+repo_root_format = "[$repo_root]($repo_root_style)[$path]($style) "
+read_only_style = "bright-red"
+style = "bright-blue"
+repo_root_style = "bold bright-yellow"
+truncate_to_repo = true
+use_logical_path = true
+use_os_path_sep = false
+
+[git_branch]
+disabled = false
+format = "| [($symbol $branch)](bright-purple) "
+symbol = ""
+only_attached = true
+always_show_remote = false
+
+[git_status]
+disabled = false
+format = '(\[[($ahead_behind )($all_status)](bright-purple)\])'
+stashed = "*${count}"
+ahead = "⇡${count}"
+behind = "⇣${count}"
+up_to_date = ""
+diverged = "⇡${ahead_count}⇣${behind_count}"
+conflicted = "=${count}"
+deleted = "×${count}"
+renamed = "»${count}"
+modified = "!${count}"
+staged = "+${count}"
+untracked = "?${count}"
+ignore_submodules = false
+
+[git_metrics]
+disabled = false
+format = '[( \[[+$added](green)([ -$deleted](red))\])]()'
+added_style = "green"
+deleted_style = "red"
+only_nonzero_diffs = true
+
+[cmd_duration]
+disabled = false
+format = "[| 󱫑 $duration ]($style)"
+style = "bright-black"
+min_time = 2000
+show_milliseconds = false
+
+[character]
+disabled = false
+success_symbol = "[➜](bold green)"
+error_symbol = "[➜](bold red)"
+
+
+# Required becuase of a nushell issue:
+# https://github.com/starship/starship/issues/6560
+
+[custom.shell_prefix]
+disabled = false
+format = "[ ]($style)"
+when = true
+style = "bright-black"
+
+
+# Add languages as needed
+# [language]
+# format = "| [($symbol($version)) ]()"
+
+[rust]
+format = "| [($symbol($version)) ]()"
+
+[c]
+format = "| [($symbol($version)) ]()"
+symbol = " "
+
+[golang]
+format = "| [($symbol($version)) ]()"
+
+[java]
+format = "| [($symbol($version)) ]()"
+
+[haskell]
+format = "| [($symbol($version)) ]()"
+
+[python]
+format = "| [($symbol($version)) ]()"
+
+[os.symbols]
+Windows = "󰍲"
+Fedora = "󰣛"
+Redhat = "󱄛"
+Ubuntu = "󰕈"
+Debian = "󰣚"
+Arch = "󰣇"
+Pop = ""
