@@ -1,3 +1,10 @@
 # Starship lines theme
 
-![alt text](assets/image.png)
+
+
+## Linux
+![linux](assets/linux.png)
+
+
+## Windows
+![windows](assets/windows.png)

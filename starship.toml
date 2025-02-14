@@ -6,22 +6,20 @@ $shell\
 $os\
 $username\
 $directory\
-
+$line_break\
 $c\
 $rust\
 $golang\
 $java\
 $haskell\
 $python\
-
 $git_branch\
 $git_status\
 $git_metrics\
 $git_state\
-
 $time\
 $cmd_duration\
-$status
+$line_break\
 $character\
 """
 
@@ -56,14 +54,14 @@ truncation_length = 0
 
 [git_branch]
 disabled = false
-format = "| [($symbol $branch)](bright-purple) "
+format = "[($symbol $branch)](bright-purple) "
 symbol = ""
 only_attached = true
 always_show_remote = false
 
 [git_status]
 disabled = false
-format = '(\[[($ahead_behind )($all_status)](bright-purple)\])'
+format = '(\[[($ahead_behind)($all_status)](bright-purple)\])'
 stashed = "*${count}"
 ahead = "⇡${count}"
 behind = "⇣${count}"
@@ -78,8 +76,8 @@ untracked = "?${count}"
 ignore_submodules = false
 
 [git_metrics]
-disabled = false
-format = '[( \[[+$added](green)([ -$deleted](red))\])]()'
+disabled = true
+format = '(\[(([+$added](green)) )([-$deleted](red))\]())'
 added_style = "green"
 deleted_style = "red"
 only_nonzero_diffs = true
@@ -109,26 +107,27 @@ style = "bright-black"
 
 # Add languages as needed
 # [language]
-# format = "| [($symbol($version)) ]()"
-
-[rust]
-format = "| [($symbol($version)) ]()"
+# format = "[($symbol($version)) ]()"
 
 [c]
-format = "| [($symbol($version)) ]()"
+format = "[($symbol($version))]() "
 symbol = " "
+commands = [["cc", "--version"], ["clang", "--version"], ["gcc", "--version"]]
+
+[rust]
+format = "[($symbol($version))]() "
 
 [golang]
-format = "| [($symbol($version)) ]()"
+format = "[($symbol($version))]() "
 
 [java]
-format = "| [($symbol($version)) ]()"
+format = "[($symbol($version))]() "
 
 [haskell]
-format = "| [($symbol($version)) ]()"
+format = "[($symbol($version))]() "
 
 [python]
-format = "| [($symbol($version)) ]()"
+format = "[($symbol($version))]() "
 
 [os.symbols]
 Windows = "󰍲"
