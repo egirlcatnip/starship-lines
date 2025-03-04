@@ -1,3 +1,6 @@
+# Starship lines - emoji, by @egirlcatnip
+# Requires a nerd font.
+
 "$schema" = "https://starship.rs/config-schema.json"
 
 format = """
@@ -83,7 +86,7 @@ deleted = "×${count}"
 renamed = "»${count}"
 modified = "!${count}"
 staged = "+${count}"
-untracked = "?${count}"
+untracked = ""
 ignore_submodules = false
 
 [git_metrics]
@@ -95,7 +98,7 @@ only_nonzero_diffs = true
 
 [cmd_duration]
 disabled = false
-format = "[| 󱫑 $duration ]($style)"
+format = "[󱫑 $duration]($style) "
 style = "bright-black"
 min_time = 2000
 show_milliseconds = false
@@ -111,7 +114,8 @@ error_symbol = "[➜](bold red)"
 
 [custom.shell_prefix]
 disabled = false
-format = "[ ]($style)"
+format = "[$symbol ]($style)"
+symbol = ""
 when = true
 style = "bright-black"
 
@@ -121,24 +125,44 @@ style = "bright-black"
 # format = "[($symbol($version)) ]()"
 
 [c]
-format = "[($symbol($version))]() "
-symbol = " "
-commands = [["clang", "--version"], ["gcc", "--version"]]
+format = '[$symbol](bold) [$version]() '
+symbol = "C"
 
 [rust]
-format = "[($symbol($version))]() "
-
-[golang]
-format = "[($symbol($version))]() "
+format = '[$symbol $version]() '
+symbol = "🦀"
 
 [java]
-format = "[($symbol($version))]() "
+format = '[$symbol $version]() '
+symbol = "☕"
+
+[kotlin]
+format = '[$symbol](bold) [$version]() '
+symbol = "K"
+
+[golang]
+format = '[$symbol $version]() '
+symbol = "🐹"
 
 [haskell]
-format = "[($symbol($version))]() "
+format = '[$symbol $version]() '
+symbol = "λ"
 
 [python]
-format = "[($symbol($version))]() "
+format = '[$symbol $version]() '
+symbol = "🐍"
+
+[php]
+format = '[$symbol $version]() '
+symbol = "🐘"
+
+[swift]
+format = '[$symbol $version]() '
+symbol = "🦅"
+
+[zig]
+format = '[$symbol $version]() '
+symbol = "⚡"
 
 [os.symbols]
 Windows = "󰍲"
@@ -146,7 +170,7 @@ Macos = ""
 
 Fedora = "󰣛"
 Redhat = "󱄛"
-RedHatEnterprise = ""
+RedHatEnterprise = "󱄛"
 CentOS = ""
 Nobara = ""
 Ultramarine = ""
@@ -166,9 +190,11 @@ EndeavourOS = ""
 Gentoo = ""
 NixOS = ""
 
-Alpine = ""
-Android = ""
 openSUSE = ""
 SUSE = ""
-Unknown = "?"
+
+Alpine = ""
+Android = ""
 Void = ""
+
+Unknown = "?"
