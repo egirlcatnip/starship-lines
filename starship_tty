@@ -9,6 +9,7 @@ $shell\
 $os\
 $username\
 $directory\
+$cmd_duration\
 $line_break\
 $c\
 $rust\
@@ -21,7 +22,6 @@ $git_status\
 $git_metrics\
 $git_state\
 $time\
-$cmd_duration\
 $line_break\
 $character\
 """
