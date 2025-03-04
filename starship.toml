@@ -142,9 +142,33 @@ format = "[($symbol($version))]() "
 
 [os.symbols]
 Windows = "󰍲"
+Macos = ""
+
 Fedora = "󰣛"
 Redhat = "󱄛"
-Ubuntu = "󰕈"
+RedHatEnterprise = ""
+CentOS = ""
+Nobara = ""
+Ultramarine = ""
+AlmaLinux = "󱄛"
+RockyLinux = "󱄛"
+
 Debian = "󰣚"
-Arch = "󰣇"
+Ubuntu = ""
+Mint = "󰣭"
 Pop = ""
+Kali = ""
+
+Arch = "󰣇"
+CachyOS = "󰣇"
+EndeavourOS = ""
+
+Gentoo = ""
+NixOS = ""
+
+Alpine = ""
+Android = ""
+openSUSE = ""
+SUSE = ""
+Unknown = "?"
+Void = ""
