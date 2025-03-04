@@ -123,7 +123,7 @@ style = "bright-black"
 [c]
 format = "[($symbol($version))]() "
 symbol = " "
-commands = [["cc", "--version"], ["clang", "--version"], ["gcc", "--version"]]
+commands = [["clang", "--version"], ["gcc", "--version"]]
 
 [rust]
 format = "[($symbol($version))]() "
