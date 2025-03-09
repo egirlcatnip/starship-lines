@@ -33,7 +33,7 @@ command_timeout = 2000
 disabled = false
 format = "[$indicator](none) "
 
-nu_indicator = "nu"
+nu_indicator = "nush"
 bash_indicator = "bash"
 zsh_indicator = "zsh"
 fish_indicator = "fish"
@@ -115,7 +115,7 @@ error_symbol = "[>](bold red)"
 [custom.shell_prefix]
 disabled = false
 format = "[$symbol]($style) "
-symbol = ""
+symbol = '\$'
 when = true
 style = "bright-black"
 
