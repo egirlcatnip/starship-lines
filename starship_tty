@@ -98,7 +98,7 @@ only_nonzero_diffs = true
 
 [cmd_duration]
 disabled = false
-format = "[󱫑 $duration]($style) "
+format = "| [󱫑 $duration]($style) "
 style = "bright-black"
 min_time = 2000
 show_milliseconds = false
