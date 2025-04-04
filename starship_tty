@@ -4,7 +4,6 @@
 "$schema" = "https://starship.rs/config-schema.json"
 
 format = """
-${custom.shell_prefix}\
 $shell\
 $os\
 $username\
@@ -18,7 +17,6 @@ $java\
 $haskell\
 $python\
 $git_branch\
-$git_status\
 $git_metrics\
 $git_state\
 $time\
@@ -65,32 +63,8 @@ use_logical_path = true
 use_os_path_sep = false
 truncation_length = 0
 
-
-[git_branch]
-disabled = false
-format = "[($symbol $branch)](bright-purple) "
-symbol = "branch"
-only_attached = true
-always_show_remote = false
-
-[git_status]
-disabled = false
-format = '(\[[($ahead_behind)($all_status)](bright-purple)\])'
-stashed = "stashed:${count}"
-ahead = "ahead:${count}"
-behind = "behind:${count}"
-up_to_date = ""
-diverged = "diverged${ahead_count}⇣${behind_count}"
-conflicted = "conflicted${count}"
-deleted = "deleted${count}"
-renamed = "renamed${count}"
-modified = "!${count}"
-staged = "+${count}"
-untracked = ""
-ignore_submodules = false
-
 [git_metrics]
-disabled = true
+disabled = false
 format = '(\[(([+$added](green)) )([-$deleted](red))\]())'
 added_style = "green"
 deleted_style = "red"
@@ -107,18 +81,6 @@ show_milliseconds = false
 disabled = false
 success_symbol = "[>](bold green)"
 error_symbol = "[>](bold red)"
-
-
-# Required becuase of a nushell issue:
-# https://github.com/starship/starship/issues/6560
-
-[custom.shell_prefix]
-disabled = false
-format = "[$symbol]($style) "
-symbol = '\$'
-when = true
-style = "bright-black"
-
 
 # Add languages as needed
 # [language]
