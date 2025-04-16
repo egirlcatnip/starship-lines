@@ -1,40 +1,39 @@
-# Starship lines - emoji, by @egirlcatnip
-# Requires a nerd font.
+# Starship lines, by @egirlcatnip
 
 "$schema" = "https://starship.rs/config-schema.json"
 
 format = """
-${custom.shell_prefix}\
-$shell\
-$os\
 $username\
 $hostname\
-$directory\
+$shell\
 $cmd_duration\
 $line_break\
-$c\
-$rust\
-$golang\
-$java\
-$haskell\
-$python\
+$directory\
 $git_branch\
-$git_status\
 $git_metrics\
-$git_state\
 $time\
 $line_break\
 $character\
 """
 
 add_newline = true
-command_timeout = 2000
+command_timeout = 500
+
+[username]
+disabled = false
+format = "[$user](none)@"
+show_always = true
+
+[hostname]
+disabled = false
+format = "[$hostname](none) "
+ssh_only = false
 
 [shell]
 disabled = false
-format = "[$indicator](none) "
+format = "| [$indicator](none)"
 
-nu_indicator = "nu"
+nu_indicator = "nush"
 bash_indicator = "bash"
 zsh_indicator = "zsh"
 fish_indicator = "fish"
@@ -45,18 +44,12 @@ pwsh_indicator = "pwsh"
 
 unknown_indicator = "?"
 
-[os]
+[cmd_duration]
 disabled = false
-format = "on [$symbol](none) | "
-
-[username]
-disabled = false
-format = "[$user](none) | "
-show_always = false
-
-[hostname]
-disabled = false
-format = "[$hostname](none) | "
+format = "| [$duration]($style) "
+style = "bright-black"
+min_time = 2000
+show_milliseconds = false
 
 [directory]
 disabled = false
@@ -70,136 +63,19 @@ use_logical_path = true
 use_os_path_sep = false
 truncation_length = 0
 
-
 [git_branch]
 disabled = false
-format = "[($symbol $branch)](bright-purple) "
-symbol = ""
-only_attached = true
-always_show_remote = false
-
-[git_status]
-disabled = false
-format = '(\[[($ahead_behind)($all_status)](bright-purple)\])'
-stashed = "*${count}"
-ahead = "⇡${count}"
-behind = "⇣${count}"
-up_to_date = ""
-diverged = "⇡${ahead_count}⇣${behind_count}"
-conflicted = "=${count}"
-deleted = "×${count}"
-renamed = "»${count}"
-modified = "!${count}"
-staged = "+${count}"
-untracked = ""
-ignore_submodules = false
+format = "on [$branch]($style) "
+ignore_branches = ["main"]
 
 [git_metrics]
-disabled = true
+disabled = false
 format = '(\[(([+$added](green)) )([-$deleted](red))\]())'
 added_style = "green"
 deleted_style = "red"
 only_nonzero_diffs = true
 
-[cmd_duration]
-disabled = false
-format = "[󱫑 $duration]($style) "
-style = "bright-black"
-min_time = 2000
-show_milliseconds = false
-
 [character]
 disabled = false
-success_symbol = "[➜](bold green)"
-error_symbol = "[➜](bold red)"
-
-
-# Required becuase of a nushell issue:
-# https://github.com/starship/starship/issues/6560
-
-[custom.shell_prefix]
-disabled = false
-format = "[$symbol ]($style)"
-symbol = ""
-when = true
-style = "bright-black"
-
-
-# Add languages as needed
-# [language]
-# format = "[($symbol($version)) ]()"
-
-[c]
-format = '[$symbol](bold) [$version]() '
-symbol = "C"
-
-[rust]
-format = '[$symbol $version]() '
-symbol = "🦀"
-
-[java]
-format = '[$symbol $version]() '
-symbol = "☕"
-
-[kotlin]
-format = '[$symbol](bold) [$version]() '
-symbol = "K"
-
-[golang]
-format = '[$symbol $version]() '
-symbol = "🐹"
-
-[haskell]
-format = '[$symbol $version]() '
-symbol = "λ"
-
-[python]
-format = '[$symbol $version]() '
-symbol = "🐍"
-
-[php]
-format = '[$symbol $version]() '
-symbol = "🐘"
-
-[swift]
-format = '[$symbol $version]() '
-symbol = "🦅"
-
-[zig]
-format = '[$symbol $version]() '
-symbol = "⚡"
-
-[os.symbols]
-Windows = "󰍲"
-Macos = ""
-
-Fedora = "󰣛"
-Redhat = "󱄛"
-RedHatEnterprise = "󱄛"
-CentOS = ""
-Nobara = ""
-Ultramarine = ""
-AlmaLinux = "󱄛"
-RockyLinux = "󱄛"
-
-Debian = "󰣚"
-Ubuntu = ""
-Mint = "󰣭"
-Pop = ""
-Kali = ""
-
-Arch = "󰣇"
-CachyOS = "󰣇"
-EndeavourOS = ""
-
-Gentoo = ""
-NixOS = ""
-
-openSUSE = ""
-SUSE = ""
-
-Alpine = ""
-Android = ""
-Void = ""
-
-Unknown = "?"
+success_symbol = '''[\$](bold green)'''
+error_symbol = '''[$](bold red)'''
