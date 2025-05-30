@@ -12,7 +12,7 @@ $directory\
 $git_branch\
 $git_metrics\
 $time\
-$line_break\https://github.com/egirlcatnip/starship-lines/edit/main/starship.toml
+$line_break\
 $character\
 """
 
