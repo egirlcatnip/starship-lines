@@ -3,6 +3,7 @@
 "$schema" = "https://starship.rs/config-schema.json"
 
 format = """
+${custom.fix}\
 $username\
 $hostname\
 $shell\
@@ -21,7 +22,7 @@ command_timeout = 500
 
 [username]
 disabled = false
-format = "[$user](none)@"
+format = "[$user]()@"
 show_always = true
 
 [hostname]
@@ -41,6 +42,7 @@ xonsh_indicator = "xonsh"
 
 cmd_indicator = "cmd"
 pwsh_indicator = "pwsh"
+powershell_indicator = "pwsh"
 
 unknown_indicator = "?"
 
@@ -79,3 +81,7 @@ only_nonzero_diffs = true
 disabled = false
 success_symbol = '''[\$](bold green)'''
 error_symbol = '''[\$](bold red)'''
+
+[custom.fix]
+format = "[\b](bold)"
+when = true
